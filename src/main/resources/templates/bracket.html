@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><div th:replace="fragments :: html_head(type='tag')"></div>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/bracket.css}">
+</head>
+
+<body th:class="site-wrapper">
+
+<header th:replace="fragments :: navbar"/>
+
+<section id="bracket">
+    <div class="container">
+        <div class="split split-one">
+            <div class="round round-one current">
+                <div class="round-details">Round 1<br/><span class="date">March 16</span></div>
+                <th:block th:each="bracket, iterStat : ${listBracketTournamentR1}">
+                    <ul class="matchup">
+                        <li class="team team-top" th:text="${bracket.team1.name}"><span class="score"></span></li>
+                        <div th:if="${bracket.result1 != null && bracket.result2 != -1}">
+                            <span class="score" th:text="${bracket.result1}"></span>
+                        </div>
+                        <li class="team team-bottom" th:if="${bracket.team2 != null}" th:text="${bracket.team2.name}"><span class="score"></span></li>
+                        <li class="team team-bottom" th:unless="${bracket.team2 != null}" text=""><span class="score"></span></li>
+                        <div th:if="${bracket.result2 != null && bracket.result2 != -1}">
+                                <span class="score" th:text="${bracket.result2}"></span>
+                        </div>
+                    </ul>
+                </th:block>
+            </div>
+
+            <div class="round round-two current">
+                <div class="round-details">Round 2<br/><span class="date">March 18</span></div>
+                <th:block th:each="bracket, iterStat : ${listBracketTournamentR2}">
+                    <ul class="matchup">
+                        <li class="team team-top" th:text="${bracket.team1.name}"><span class="score"></span></li>
+                        <div th:if="${bracket.result1 != null}">
+                            <span class="score" th:text="${bracket.result1}"></span>
+                        </div>
+                        <li class="team team-bottom" th:text="${bracket.team2.name}"><span class="score"></span></li>
+                        <div th:if="${bracket.result2 != null}">
+                            <span class="score" th:text="${bracket.result2}"></span>
+                        </div>
+                    </ul>
+                </th:block>
+            </div>
+
+            <div class="round round-three current">
+                <div class="round-details">Round 3<br/><span class="date">March 18</span></div>
+                <th:block th:each="bracket, iterStat : ${listBracketTournamentR3}">
+                    <ul class="matchup">
+                        <li class="team team-top" th:text="${bracket.team1.name}"><span class="score"></span></li>
+                        <div th:if="${bracket.result1 != null}">
+                            <span class="score" th:text="${bracket.result1}"></span>
+                        </div>
+                        <li class="team team-bottom" th:text="${bracket.team2.name}"><span class="score"></span></li>
+                        <div th:if="${bracket.result2 != null}">
+                            <span class="score" th:text="${bracket.result2}"></span>
+                        </div>
+                    </ul>
+                </th:block>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer><div th:replace="fragments :: footer(type='tag')"></div></footer>
+
+</body>
+
+</html>

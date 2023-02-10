@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments :: html_head(type='tag')"></div>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/table_results_tournaments.css}">
+    <script src="https://kit.fontawesome.com/828531a006.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body th:class="site-wrapper">
+
+<header th:replace="fragments :: navbar"/>
+
+<div class="page-home relative" style="background-image: url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+    background-position: center;
+    background-size: cover;">
+    <div class="overlay"></div>
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items form-style">
+                        <h2 class="center-txt">Tournaments</h2>
+                        <p style="text-align: center">For sign up or more information select tournament</p>
+                        <div class="center row height d-flex justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <form th:action="@{/tournaments/list/1}">
+                                    <div class="search"><i class="fa fa-search"></i><input type="text"
+                                                                                           class="form-control"
+                                                                                           name="keyword" id="keyword"
+                                                                                           placeholder="Search"
+                                                                                           th:value="${keyword}"
+                                                                                           autofocus>
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </div>
+                                    <input type="hidden" name="sortField" th:value="${sortField}"/>
+                                    <input type="hidden" name="sortDir" th:value="${sortDir}"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="table-section">
+                            <table id="table">
+                                <tr class="header-row">
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=name&sortDir=' + ${sortDirReverse}}">Name </a><i
+                                            th:if="${sortDir == 'asc' && sortField == 'name'}"
+                                            class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'name'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=date&sortDir=' + ${sortDirReverse}}">Date </a><i
+                                            th:if="${sortDir == 'asc' && sortField == 'date'}"
+                                            class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'date'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=time&sortDir=' + ${sortDirReverse}}">Time </a><i
+                                            th:if="${sortDir == 'asc' && sortField == 'time'}"
+                                            class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'time'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=teamSizeRequired&sortDir=' + ${sortDirReverse}}">Team
+                                        size </a><i th:if="${sortDir == 'asc' && sortField == 'teamSizeRequired'}"
+                                                    class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'teamSizeRequired'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=game&sortDir=' + ${sortDirReverse}}">Game </a><i
+                                            th:if="${sortDir == 'asc' && sortField == 'game'}"
+                                            class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'game'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th class="header-item items"><a class="link-row"
+                                                                     th:href="@{'/tournaments/list/' + ${pageNumber} + '?keyword=' + ${keyword != null ? keyword : '' } + '&sortField=prize&sortDir=' + ${sortDirReverse}}">Total
+                                        prize </a><i th:if="${sortDir == 'asc' && sortField == 'prize'}"
+                                                     class="fa-solid fa-angle-up"></i><i
+                                            th:if="${sortDir == 'desc' && sortField == 'prize'}"
+                                            class="fa-solid fa-angle-down"></i></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <th:block th:each="tournament : ${listTournaments}">
+                                    <tr class="table-rows" title="Select">
+                                        <!--      <td class="items"><a th:if="${tournament.identifierBracket == null}" th:href="@{'/teams/new/' + ${tournament.id}}"></a>[[${tournament.name}]]</td> -->
+                                        <td class="items"><a
+                                                th:href="@{'/tournaments/' + ${tournament.id} + '/info'}"></a>[[${tournament.name}]]
+                                        </td>
+                                        <td class="items">[[${tournament.date}]]</td>
+                                        <td class="items">[[${tournament.time}]]</td>
+                                        <td class="items">[[${tournament.teamSizeRequired}]]</td>
+                                        <td class="items">[[${tournament.game}]]</td>
+                                        <td class="items">[[${tournament.prize}]]<span> €</span></td>
+                                        <td><a class="btn btn-primary button-reg"
+                                               th:href="@{'/tournaments/list/edit/' + ${tournament.id}}">Edit</a></td>
+                                        <td><a class="btn btn-primary button-reg"
+                                               th:if="${tournament.identifierBracket != null}"
+                                               th:href="@{'/bracket/' + ${tournament.id}}">Bracket</a></td>
+                                        <td><a class="btn btn-primary button-reg"
+                                               th:if="${tournament.identifierBracket != null}"
+                                               th:href="@{'/bracket/results/' + ${tournament.id}}">Results</a></td>
+                                        <td><a class="btn btn-primary button-reg"
+                                               th:if="${tournament.identifierBracket == null}"
+                                               th:href="@{'/bracket/create/' + ${tournament.id}}">CreateBracket</a>
+                                            <a class="btn btn-primary button-reg"
+                                               th:unless="${tournament.identifierBracket == null}"
+                                               th:href="@{'/bracket/delete/' + ${tournament.id}}">DeleteBracket</a></td>
+                                    </tr>
+                                </th:block>
+                            </table>
+                            <div class="pag-style">
+                                <a class="pag" th:if="${pageNumber != 1}"
+                                   th:href="@{'/tournaments/list/1' + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">1</a>
+                                <span class="pag-select" th:unless="${pageNumber != 1}">1</span>
+
+                                <span th:if="${totalPages < 5}" th:each="i: ${#numbers.sequence(2, totalPages)}">
+                                    <a class="pag" th:if="${pageNumber != i}"
+                                       th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                    <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                </span>
+
+                                <span th:if="${pageNumber == 1 && totalPages > 4}"
+                                      th:each="i: ${#numbers.sequence(pageNumber + 1, pageNumber + 3)}">
+                                    <a class="pag" th:if="${pageNumber != i}"
+                                       th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                    <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                </span>
+
+                                <span th:if="${pageNumber == 2 && totalPages > 4}"
+                                      th:each="i: ${#numbers.sequence(pageNumber, pageNumber + 2)}">
+                                    <a class="pag" th:if="${pageNumber != i}"
+                                       th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                    <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                </span>
+
+                                <span th:if="${pageNumber > 2 && pageNumber < totalPages - 1 && totalPages > 4}"
+                                      th:each="i: ${#numbers.sequence(pageNumber - 1, pageNumber + 1)}">
+                                        <a class="pag" th:if="${pageNumber != i}"
+                                           th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                        <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                    </span>
+
+                                <span th:if="${pageNumber == totalPages - 1 && totalPages > 4}"
+                                      th:each="i: ${#numbers.sequence(pageNumber - 2, pageNumber)}">
+                                        <a class="pag" th:if="${pageNumber != i}"
+                                           th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                        <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                    </span>
+
+                                <span th:if="${pageNumber == totalPages && totalPages > 4}"
+                                      th:each="i: ${#numbers.sequence(pageNumber - 3, pageNumber - 1)}">
+                                        <a class="pag" th:if="${pageNumber != i}"
+                                           th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                        <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                                    </span>
+
+                                <span th:if="${totalPages > 4}">
+                                    <a class="pag" th:if="${pageNumber != totalPages}"
+                                       th:href="@{'/tournaments/list/' + ${totalPages} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${totalPages}]]</a>
+                                    <span class="pag-select"
+                                          th:unless="${pageNumber != totalPages}">[[${totalPages}]]</span>
+                                    </span>
+                            </div>
+                            <!-- <div class="pag-style">
+                                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                    <a class="pag" th:if="${pageNumber != i}" th:href="@{'/tournaments/list/' + ${i}} + '?keyword=' + ${keyword != null ? keyword : ''} + '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}">[[${i}]]</a>
+                                    <span class="pag-select" th:unless="${pageNumber != i}">[[${i}]]</span>
+                            </span>
+                        </div>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<footer>
+    <div th:replace="fragments :: footer(type='tag')"></div>
+</footer>
+
+</body>
+
+</html>

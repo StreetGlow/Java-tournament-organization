@@ -1,0 +1,213 @@
+2022-02-18 16:39:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID LONG PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED FLOAT,
+    PRECISION FLOAT,
+)[*]"; expected "identifier"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id long PRIMARY KEY,
+    Name varchar(255),
+    Speed float,
+    Precision float,
+) [42001-200]
+2022-02-18 16:43:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID LONG PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED FLOAT (2,[*]1),
+    PRECISION FLOAT (2,1),
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id long PRIMARY KEY,
+    Name varchar(255),
+    Speed float (2,1),
+    Precision float (2,1),
+) [42001-200]
+2022-02-18 16:43:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID LONG,
+    NAME VARCHAR(255),
+    SPEED FLOAT (2,[*]1),
+    PRECISION FLOAT (2,1),
+
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id long,
+    Name varchar(255),
+    Speed float (2,1),
+    Precision float (2,1),
+
+) [42001-200]
+2022-02-18 16:44:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID LONG(5,[*]0) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED FLOAT (2,1),
+    PRECISION FLOAT (2,1),
+
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id long(5,0) PRIMARY KEY,
+    Name varchar(255),
+    Speed float (2,1),
+    Precision float (2,1),
+
+) [42001-200]
+2022-02-18 16:44:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID LONG(5,[*]0) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED FLOAT (2,1),
+    PRECISION FLOAT (2,1),
+
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id long(5,0) PRIMARY KEY,
+    Name varchar(255),
+    Speed float (2,1),
+    Precision float (2,1),
+
+) [42001-200]
+2022-02-18 16:45:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED FLOAT (2,[*]1),
+    PRECISION FLOAT (2,1),
+
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id varchar(255) PRIMARY KEY,
+    Name varchar(255),
+    Speed float (2,1),
+    Precision float (2,1),
+
+) [42001-200]
+2022-02-18 16:46:23 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id varchar(255) PRIMARY KEY,
+    Name varchar(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+) [42001-200]
+2022-02-18 16:47:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+PRIMARY KEY(ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+PRIMARY KEY(Id)
+) [42001-200]
+2022-02-18 16:47:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+    PRIMARY KEY(Id)
+) [42001-200]
+2022-02-18 16:47:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+    PRIMARY KEY(Id)
+) [42001-200]
+2022-02-18 16:47:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255) PRIMARY KEY,
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+    PRIMARY KEY(Id)
+) [42001-200]
+2022-02-18 16:48:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(255),
+    NAME VARCHAR(255),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    Id VARCHAR(255),
+    Name VARCHAR(255),
+    Speed DOUBLE(2, 1),
+    Precision DOUBLE(2, 1),
+    PRIMARY KEY(Id)
+) [42001-200]
+2022-02-18 16:52:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(30),
+    NAME VARCHAR(30),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID))"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    id VARCHAR(30),
+    name VARCHAR(30),
+    speed DOUBLE(2, 1),
+    precision DOUBLE(2, 1),
+    PRIMARY KEY(Id)) [42001-200]
+2022-02-18 16:52:52 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYERS (
+    ID VARCHAR(30),
+    NAME VARCHAR(30),
+    SPEED DOUBLE(2,[*] 1),
+    PRECISION DOUBLE(2, 1),
+    PRIMARY KEY(ID))"; expected ")"; SQL statement:
+CREATE TABLE PLAYERS (
+    id VARCHAR(30),
+    name VARCHAR(30),
+    speed DOUBLE(2, 1),
+    precision DOUBLE(2, 1),
+    PRIMARY KEY(id)) [42001-200]
+2022-02-18 16:55:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLAYER( 
+ID LONG NOT NULL, 
+NAME VARCHAR(30) NOT NULL, 
+SPEED DOUBLE(2,[*]1) NOT NULL, 
+PRECISION DOUBLE(2,1) NOT NULL, 
+PRIMARY KEY(ID) )"; expected ")"; SQL statement:
+CREATE TABLE PLAYER( 
+id LONG NOT NULL, 
+name VARCHAR(30) NOT NULL, 
+speed DOUBLE(2,1) NOT NULL, 
+precision DOUBLE(2,1) NOT NULL, 
+PRIMARY KEY(id) ) [42001-200]

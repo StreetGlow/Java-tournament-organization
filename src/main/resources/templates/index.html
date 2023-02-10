@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><div th:replace="fragments :: html_head(type='tag')"></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/828531a006.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style_index.css}">
+</head>
+<body>
+<main class="site-wrapper">
+    <div class="pt-table desktop-768">
+        <div class="pt-tablecell page-home relative" style="background-image: url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+    background-position: center;
+    background-size: cover;">
+            <div class="overlay"></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                        <div class="page-title  home text-center">
+                                  <span class="heading-page">Welcome to tournament organization page
+                                  </span>
+                            <p class="mt20">Welcome page info</p>
+                        </div>
+                        <div class="hexagon-menu clear">
+                            <div class="hexagon-item">
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <!--
+                                <a  class="hex-content" th:href="@{'/tournaments/list/' + '1' + '?keyword=' + '&sortField=date' + '&sortDir=asc'}">
+                                -->
+                                <a  class="hex-content" th:href="@{/tournaments/list}">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-trophy"></i>
+                                                </span>
+                                                <span class="title">Tournaments</span>
+                                            </span>
+                                    <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                </a>
+                            </div>
+                            <div class="hexagon-item">
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <a  class="hex-content" th:href="@{/players/new}">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </span>
+                                                <span class="title">Player registration</span>
+                                            </span>
+                                    <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                </a>
+                            </div>
+                            <div class="hexagon-item">
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                </span>
+                                                <span class="title">Information (Soon)</span>
+                                            </span>
+                                    <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                </a>
+                            </div>
+                            <div class="hexagon-item">
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="hex-item">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                                </span>
+                                                <span class="title">Login (Soon)</span>
+                                            </span>
+                                    <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                </a>
+                            </div>
+                            <div class="hexagon-item" style="visibility: hidden"></div>
+                            <div class="hexagon-item" style="visibility: hidden"></div>
+                            <div class="hexagon-item" style="visibility: hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"></script>
+</body>
+</html>
